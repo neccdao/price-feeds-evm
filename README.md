@@ -33,7 +33,9 @@ $ yarn deploy --decimals 8 --description "ETH / USD" --network aurora
 
 Save the deployed contract address outputted by the command above.
 
-Optionally include `--validator "0xMyAddress"` to grant a different address the initial validator role rather than the one derived from the mnemonic in the `.env` file.
+By default, only the deployer key can push data to this contract. Optionally include `--validator "0xMyAddress"` to grant a different address the initial validator role rather than the deployer.
+
+EXPERIMENTAL: Optionally include `--is-access-controlled true` to enable whitelisting of contract addresses able to query the price feed. A helper task will be created soon to add and remove addresses from a price feed's whitelist.
 
 _Note: We deployed a price feed contract on Aurora at address `0xb5c82C7F2a5a90b040f411fe7D80C154Cc082160` with all role-based permissions removed. Feel free to try posting and fetching data on this contract without deploying your own!_
 
